@@ -4,12 +4,20 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'gradle build -x test'
+                bat 'gradle clean build -x test'
             }
         }
         stage('test') {
             steps {
                 bat 'gradle test'
+            }
+        }
+        stage('sonar') {
+            steps {
+                def scannerHome = tool 'SonarQube 3.2';
+                withSonarQubeEnv('My SonarQube Server') {
+                      bat "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
     }
