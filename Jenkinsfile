@@ -1,9 +1,15 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent any
+    triggers { cron('H */4 * * 1-5') }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                bat 'mvn --version'
+            }
+        }
+        stage('test') {
+            steps {
+                bat 'gradle -v'
             }
         }
     }
