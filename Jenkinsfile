@@ -4,12 +4,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat 'mvn --version'
+                bat 'gradle build -x test'
             }
         }
         stage('test') {
             steps {
-                bat 'gradle -v'
+                bat 'gradle test'
             }
         }
     }
