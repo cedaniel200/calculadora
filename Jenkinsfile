@@ -21,7 +21,7 @@ pipeline {
                         reportFiles: 'index.html',
                         reportName: 'Resultado de los Test',
                         reportTitles: ''])
-                    
+
                     archiveArtifacts artifacts: 'build/reports/tests/**/*.*', fingerprint: true
                     junit 'build/test-results/**/*.xml'
                 }
