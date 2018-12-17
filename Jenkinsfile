@@ -21,6 +21,8 @@ pipeline {
                         reportFiles: 'index.html',
                         reportName: 'Resultado de los Test',
                         reportTitles: ''])
+
+                    junit 'build/test-results/**/*.xml'
                 }
             }
         }
