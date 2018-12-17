@@ -22,6 +22,7 @@ pipeline {
                         reportName: 'Resultado de los Test',
                         reportTitles: ''])
 
+                    archiveArtifacts 'build/reports/tests/test/index.html'
                     junit 'build/test-results/**/*.xml'
                 }
             }
